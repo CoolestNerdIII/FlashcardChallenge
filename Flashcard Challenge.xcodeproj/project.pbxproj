@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69783EDB1926D1AD0022DD4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EDA1926D1AD0022DD4A /* Foundation.framework */; };
+		69783EDD1926D1AD0022DD4A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EDC1926D1AD0022DD4A /* CoreGraphics.framework */; };
+		69783EDF1926D1AD0022DD4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EDE1926D1AD0022DD4A /* UIKit.framework */; };
+		69783EE11926D1AD0022DD4A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EE01926D1AD0022DD4A /* CoreData.framework */; };
+		69783EE71926D1AD0022DD4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69783EE51926D1AD0022DD4A /* InfoPlist.strings */; };
+		69783EE91926D1AD0022DD4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783EE81926D1AD0022DD4A /* main.m */; };
+		69783EED1926D1AD0022DD4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783EEC1926D1AD0022DD4A /* AppDelegate.m */; };
+		69783EF01926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69783EEE1926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld */; };
+		69783EF21926D1AD0022DD4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69783EF11926D1AD0022DD4A /* Images.xcassets */; };
+		69783EF91926D1AD0022DD4A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EF81926D1AD0022DD4A /* XCTest.framework */; };
+		69783EFA1926D1AD0022DD4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EDA1926D1AD0022DD4A /* Foundation.framework */; };
+		69783EFB1926D1AD0022DD4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EDE1926D1AD0022DD4A /* UIKit.framework */; };
+		69783EFC1926D1AD0022DD4A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EE01926D1AD0022DD4A /* CoreData.framework */; };
+		69783F041926D1AD0022DD4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69783F021926D1AD0022DD4A /* InfoPlist.strings */; };
+		69783F061926D1AD0022DD4A /* Flashcard_ChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F051926D1AD0022DD4A /* Flashcard_ChallengeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69783EFD1926D1AD0022DD4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69783ECF1926D1AD0022DD4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69783ED61926D1AD0022DD4A;
+			remoteInfo = "Flashcard Challenge";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		69783ED71926D1AD0022DD4A /* Flashcard Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flashcard Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69783EDA1926D1AD0022DD4A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		69783EDC1926D1AD0022DD4A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		69783EDE1926D1AD0022DD4A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		69783EE01926D1AD0022DD4A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		69783EE41926D1AD0022DD4A /* Flashcard Challenge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flashcard Challenge-Info.plist"; sourceTree = "<group>"; };
+		69783EE61926D1AD0022DD4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69783EE81926D1AD0022DD4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		69783EEA1926D1AD0022DD4A /* Flashcard Challenge-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flashcard Challenge-Prefix.pch"; sourceTree = "<group>"; };
+		69783EEB1926D1AD0022DD4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		69783EEC1926D1AD0022DD4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		69783EEF1926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flashcard_Challenge.xcdatamodel; sourceTree = "<group>"; };
+		69783EF11926D1AD0022DD4A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		69783EF71926D1AD0022DD4A /* Flashcard ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flashcard ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69783EF81926D1AD0022DD4A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		69783F011926D1AD0022DD4A /* Flashcard ChallengeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flashcard ChallengeTests-Info.plist"; sourceTree = "<group>"; };
+		69783F031926D1AD0022DD4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69783F051926D1AD0022DD4A /* Flashcard_ChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flashcard_ChallengeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69783ED41926D1AD0022DD4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69783EDD1926D1AD0022DD4A /* CoreGraphics.framework in Frameworks */,
+				69783EE11926D1AD0022DD4A /* CoreData.framework in Frameworks */,
+				69783EDF1926D1AD0022DD4A /* UIKit.framework in Frameworks */,
+				69783EDB1926D1AD0022DD4A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69783EF41926D1AD0022DD4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69783EF91926D1AD0022DD4A /* XCTest.framework in Frameworks */,
+				69783EFC1926D1AD0022DD4A /* CoreData.framework in Frameworks */,
+				69783EFB1926D1AD0022DD4A /* UIKit.framework in Frameworks */,
+				69783EFA1926D1AD0022DD4A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69783ECE1926D1AD0022DD4A = {
+			isa = PBXGroup;
+			children = (
+				69783EE21926D1AD0022DD4A /* Flashcard Challenge */,
+				69783EFF1926D1AD0022DD4A /* Flashcard ChallengeTests */,
+				69783ED91926D1AD0022DD4A /* Frameworks */,
+				69783ED81926D1AD0022DD4A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69783ED81926D1AD0022DD4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69783ED71926D1AD0022DD4A /* Flashcard Challenge.app */,
+				69783EF71926D1AD0022DD4A /* Flashcard ChallengeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69783ED91926D1AD0022DD4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69783EDA1926D1AD0022DD4A /* Foundation.framework */,
+				69783EDC1926D1AD0022DD4A /* CoreGraphics.framework */,
+				69783EDE1926D1AD0022DD4A /* UIKit.framework */,
+				69783EE01926D1AD0022DD4A /* CoreData.framework */,
+				69783EF81926D1AD0022DD4A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69783EE21926D1AD0022DD4A /* Flashcard Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				69783EEB1926D1AD0022DD4A /* AppDelegate.h */,
+				69783EEC1926D1AD0022DD4A /* AppDelegate.m */,
+				69783EF11926D1AD0022DD4A /* Images.xcassets */,
+				69783EEE1926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld */,
+				69783EE31926D1AD0022DD4A /* Supporting Files */,
+			);
+			path = "Flashcard Challenge";
+			sourceTree = "<group>";
+		};
+		69783EE31926D1AD0022DD4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69783EE41926D1AD0022DD4A /* Flashcard Challenge-Info.plist */,
+				69783EE51926D1AD0022DD4A /* InfoPlist.strings */,
+				69783EE81926D1AD0022DD4A /* main.m */,
+				69783EEA1926D1AD0022DD4A /* Flashcard Challenge-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69783EFF1926D1AD0022DD4A /* Flashcard ChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				69783F051926D1AD0022DD4A /* Flashcard_ChallengeTests.m */,
+				69783F001926D1AD0022DD4A /* Supporting Files */,
+			);
+			path = "Flashcard ChallengeTests";
+			sourceTree = "<group>";
+		};
+		69783F001926D1AD0022DD4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69783F011926D1AD0022DD4A /* Flashcard ChallengeTests-Info.plist */,
+				69783F021926D1AD0022DD4A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69783ED61926D1AD0022DD4A /* Flashcard Challenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69783F091926D1AD0022DD4A /* Build configuration list for PBXNativeTarget "Flashcard Challenge" */;
+			buildPhases = (
+				69783ED31926D1AD0022DD4A /* Sources */,
+				69783ED41926D1AD0022DD4A /* Frameworks */,
+				69783ED51926D1AD0022DD4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flashcard Challenge";
+			productName = "Flashcard Challenge";
+			productReference = 69783ED71926D1AD0022DD4A /* Flashcard Challenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69783EF61926D1AD0022DD4A /* Flashcard ChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69783F0C1926D1AD0022DD4A /* Build configuration list for PBXNativeTarget "Flashcard ChallengeTests" */;
+			buildPhases = (
+				69783EF31926D1AD0022DD4A /* Sources */,
+				69783EF41926D1AD0022DD4A /* Frameworks */,
+				69783EF51926D1AD0022DD4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69783EFE1926D1AD0022DD4A /* PBXTargetDependency */,
+			);
+			name = "Flashcard ChallengeTests";
+			productName = "Flashcard ChallengeTests";
+			productReference = 69783EF71926D1AD0022DD4A /* Flashcard ChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69783ECF1926D1AD0022DD4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Paul Wilson";
+				TargetAttributes = {
+					69783EF61926D1AD0022DD4A = {
+						TestTargetID = 69783ED61926D1AD0022DD4A;
+					};
+				};
+			};
+			buildConfigurationList = 69783ED21926D1AD0022DD4A /* Build configuration list for PBXProject "Flashcard Challenge" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 69783ECE1926D1AD0022DD4A;
+			productRefGroup = 69783ED81926D1AD0022DD4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69783ED61926D1AD0022DD4A /* Flashcard Challenge */,
+				69783EF61926D1AD0022DD4A /* Flashcard ChallengeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69783ED51926D1AD0022DD4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69783EE71926D1AD0022DD4A /* InfoPlist.strings in Resources */,
+				69783EF21926D1AD0022DD4A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69783EF51926D1AD0022DD4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69783F041926D1AD0022DD4A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69783ED31926D1AD0022DD4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69783EF01926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld in Sources */,
+				69783EED1926D1AD0022DD4A /* AppDelegate.m in Sources */,
+				69783EE91926D1AD0022DD4A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69783EF31926D1AD0022DD4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69783F061926D1AD0022DD4A /* Flashcard_ChallengeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69783EFE1926D1AD0022DD4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69783ED61926D1AD0022DD4A /* Flashcard Challenge */;
+			targetProxy = 69783EFD1926D1AD0022DD4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69783EE51926D1AD0022DD4A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69783EE61926D1AD0022DD4A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		69783F021926D1AD0022DD4A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69783F031926D1AD0022DD4A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69783F071926D1AD0022DD4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69783F081926D1AD0022DD4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69783F0A1926D1AD0022DD4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flashcard Challenge/Flashcard Challenge-Prefix.pch";
+				INFOPLIST_FILE = "Flashcard Challenge/Flashcard Challenge-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		69783F0B1926D1AD0022DD4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flashcard Challenge/Flashcard Challenge-Prefix.pch";
+				INFOPLIST_FILE = "Flashcard Challenge/Flashcard Challenge-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		69783F0D1926D1AD0022DD4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Flashcard Challenge.app/Flashcard Challenge";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flashcard Challenge/Flashcard Challenge-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Flashcard ChallengeTests/Flashcard ChallengeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		69783F0E1926D1AD0022DD4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Flashcard Challenge.app/Flashcard Challenge";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flashcard Challenge/Flashcard Challenge-Prefix.pch";
+				INFOPLIST_FILE = "Flashcard ChallengeTests/Flashcard ChallengeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69783ED21926D1AD0022DD4A /* Build configuration list for PBXProject "Flashcard Challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69783F071926D1AD0022DD4A /* Debug */,
+				69783F081926D1AD0022DD4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69783F091926D1AD0022DD4A /* Build configuration list for PBXNativeTarget "Flashcard Challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69783F0A1926D1AD0022DD4A /* Debug */,
+				69783F0B1926D1AD0022DD4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		69783F0C1926D1AD0022DD4A /* Build configuration list for PBXNativeTarget "Flashcard ChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69783F0D1926D1AD0022DD4A /* Debug */,
+				69783F0E1926D1AD0022DD4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		69783EEE1926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				69783EEF1926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodel */,
+			);
+			currentVersion = 69783EEF1926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodel */;
+			path = Flashcard_Challenge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 69783ECF1926D1AD0022DD4A /* Project object */;
+}

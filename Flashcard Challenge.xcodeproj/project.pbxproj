@@ -22,6 +22,11 @@
 		69783EFC1926D1AD0022DD4A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EE01926D1AD0022DD4A /* CoreData.framework */; };
 		69783F041926D1AD0022DD4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69783F021926D1AD0022DD4A /* InfoPlist.strings */; };
 		69783F061926D1AD0022DD4A /* Flashcard_ChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F051926D1AD0022DD4A /* Flashcard_ChallengeTests.m */; };
+		69783F111926D4300022DD4A /* DeckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F101926D4300022DD4A /* DeckViewController.m */; };
+		69783F141926D4980022DD4A /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F131926D4980022DD4A /* Deck.m */; };
+		69783F171926D4980022DD4A /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F161926D4980022DD4A /* Card.m */; };
+		69783F1C1926DA710022DD4A /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F1B1926DA710022DD4A /* CardsViewController.m */; };
+		697E99721926DF3A00D6BB07 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697E99711926DF3A00D6BB07 /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,15 @@
 		69783F011926D1AD0022DD4A /* Flashcard ChallengeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flashcard ChallengeTests-Info.plist"; sourceTree = "<group>"; };
 		69783F031926D1AD0022DD4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69783F051926D1AD0022DD4A /* Flashcard_ChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flashcard_ChallengeTests.m; sourceTree = "<group>"; };
+		69783F0F1926D4300022DD4A /* DeckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckViewController.h; sourceTree = "<group>"; };
+		69783F101926D4300022DD4A /* DeckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeckViewController.m; sourceTree = "<group>"; };
+		69783F121926D4980022DD4A /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		69783F131926D4980022DD4A /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		69783F151926D4980022DD4A /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		69783F161926D4980022DD4A /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		69783F1A1926DA710022DD4A /* CardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsViewController.h; sourceTree = "<group>"; };
+		69783F1B1926DA710022DD4A /* CardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsViewController.m; sourceTree = "<group>"; };
+		697E99711926DF3A00D6BB07 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +129,15 @@
 		69783EE21926D1AD0022DD4A /* Flashcard Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				69783F191926D4B90022DD4A /* Core Data Files */,
 				69783EEB1926D1AD0022DD4A /* AppDelegate.h */,
 				69783EEC1926D1AD0022DD4A /* AppDelegate.m */,
 				69783EF11926D1AD0022DD4A /* Images.xcassets */,
-				69783EEE1926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld */,
+				69783F0F1926D4300022DD4A /* DeckViewController.h */,
+				69783F101926D4300022DD4A /* DeckViewController.m */,
+				69783F1A1926DA710022DD4A /* CardsViewController.h */,
+				69783F1B1926DA710022DD4A /* CardsViewController.m */,
+				697E99711926DF3A00D6BB07 /* Storyboard.storyboard */,
 				69783EE31926D1AD0022DD4A /* Supporting Files */,
 			);
 			path = "Flashcard Challenge";
@@ -151,6 +170,18 @@
 				69783F021926D1AD0022DD4A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69783F191926D4B90022DD4A /* Core Data Files */ = {
+			isa = PBXGroup;
+			children = (
+				69783EEE1926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld */,
+				69783F151926D4980022DD4A /* Card.h */,
+				69783F161926D4980022DD4A /* Card.m */,
+				69783F121926D4980022DD4A /* Deck.h */,
+				69783F131926D4980022DD4A /* Deck.m */,
+			);
+			name = "Core Data Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +261,7 @@
 			files = (
 				69783EE71926D1AD0022DD4A /* InfoPlist.strings in Resources */,
 				69783EF21926D1AD0022DD4A /* Images.xcassets in Resources */,
+				697E99721926DF3A00D6BB07 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,9 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69783F141926D4980022DD4A /* Deck.m in Sources */,
 				69783EF01926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld in Sources */,
+				69783F111926D4300022DD4A /* DeckViewController.m in Sources */,
 				69783EED1926D1AD0022DD4A /* AppDelegate.m in Sources */,
 				69783EE91926D1AD0022DD4A /* main.m in Sources */,
+				69783F1C1926DA710022DD4A /* CardsViewController.m in Sources */,
+				69783F171926D4980022DD4A /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +485,7 @@
 				69783F0B1926D1AD0022DD4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69783F0C1926D1AD0022DD4A /* Build configuration list for PBXNativeTarget "Flashcard ChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +494,7 @@
 				69783F0E1926D1AD0022DD4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

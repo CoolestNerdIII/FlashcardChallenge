@@ -9,6 +9,8 @@
 #import "DeckViewController.h"
 #import "CardsViewController.h"
 
+#import "ModeSelectionViewController.h"
+
 @interface DeckViewController ()
 
 @end
@@ -90,7 +92,7 @@
     Deck *deck = (Deck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
 
     cell.textLabel.text = deck.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"(%d)", deck.cards.count];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"(%lu)", (unsigned long)deck.cards.count];
     return cell;
 }
 
@@ -98,7 +100,7 @@
 {
     
     Deck *deck = (Deck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    CardsViewController *detailViewController = [[CardsViewController alloc] initWithDeck:deck];
+    ModeSelectionViewController *detailViewController = [[ModeSelectionViewController alloc] initWithDeck:deck];
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
@@ -162,8 +164,7 @@ editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 #pragma mark - Core Data Helper
 -(void)fetchDecks
 {
-    NSFetchRequest *fetchRequest =
-    [NSFetchRequest fetchRequestWithEntityName:@"Deck"];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Deck"];
     NSString *cacheName = [@"Deck" stringByAppendingString:@"Cache"];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
@@ -211,4 +212,11 @@ editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
         [self.tableView reloadData];
     }
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self fetchDecks];
+    [self.tableView reloadData];
+}
+
 @end

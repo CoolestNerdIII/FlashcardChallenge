@@ -27,6 +27,8 @@
 		69783F171926D4980022DD4A /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F161926D4980022DD4A /* Card.m */; };
 		69783F1C1926DA710022DD4A /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F1B1926DA710022DD4A /* CardsViewController.m */; };
 		697E99721926DF3A00D6BB07 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697E99711926DF3A00D6BB07 /* Storyboard.storyboard */; };
+		697E9A0C1926EABE00D6BB07 /* ModeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697E9A0B1926EABE00D6BB07 /* ModeSelectionViewController.m */; };
+		697E9A131926FA5600D6BB07 /* CardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697E9A121926FA5600D6BB07 /* CardEditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,10 @@
 		69783F1A1926DA710022DD4A /* CardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsViewController.h; sourceTree = "<group>"; };
 		69783F1B1926DA710022DD4A /* CardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsViewController.m; sourceTree = "<group>"; };
 		697E99711926DF3A00D6BB07 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		697E9A0A1926EABE00D6BB07 /* ModeSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeSelectionViewController.h; sourceTree = "<group>"; };
+		697E9A0B1926EABE00D6BB07 /* ModeSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeSelectionViewController.m; sourceTree = "<group>"; };
+		697E9A111926FA5600D6BB07 /* CardEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardEditViewController.h; sourceTree = "<group>"; };
+		697E9A121926FA5600D6BB07 /* CardEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardEditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,13 +136,10 @@
 			isa = PBXGroup;
 			children = (
 				69783F191926D4B90022DD4A /* Core Data Files */,
+				697E9A0D1926F1F300D6BB07 /* View Controllers */,
 				69783EEB1926D1AD0022DD4A /* AppDelegate.h */,
 				69783EEC1926D1AD0022DD4A /* AppDelegate.m */,
 				69783EF11926D1AD0022DD4A /* Images.xcassets */,
-				69783F0F1926D4300022DD4A /* DeckViewController.h */,
-				69783F101926D4300022DD4A /* DeckViewController.m */,
-				69783F1A1926DA710022DD4A /* CardsViewController.h */,
-				69783F1B1926DA710022DD4A /* CardsViewController.m */,
 				697E99711926DF3A00D6BB07 /* Storyboard.storyboard */,
 				69783EE31926D1AD0022DD4A /* Supporting Files */,
 			);
@@ -182,6 +185,21 @@
 				69783F131926D4980022DD4A /* Deck.m */,
 			);
 			name = "Core Data Files";
+			sourceTree = "<group>";
+		};
+		697E9A0D1926F1F300D6BB07 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				69783F0F1926D4300022DD4A /* DeckViewController.h */,
+				69783F101926D4300022DD4A /* DeckViewController.m */,
+				697E9A0A1926EABE00D6BB07 /* ModeSelectionViewController.h */,
+				697E9A0B1926EABE00D6BB07 /* ModeSelectionViewController.m */,
+				69783F1A1926DA710022DD4A /* CardsViewController.h */,
+				69783F1B1926DA710022DD4A /* CardsViewController.m */,
+				697E9A111926FA5600D6BB07 /* CardEditViewController.h */,
+				697E9A121926FA5600D6BB07 /* CardEditViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,8 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697E9A131926FA5600D6BB07 /* CardEditViewController.m in Sources */,
 				69783F141926D4980022DD4A /* Deck.m in Sources */,
 				69783EF01926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld in Sources */,
+				697E9A0C1926EABE00D6BB07 /* ModeSelectionViewController.m in Sources */,
 				69783F111926D4300022DD4A /* DeckViewController.m in Sources */,
 				69783EED1926D1AD0022DD4A /* AppDelegate.m in Sources */,
 				69783EE91926D1AD0022DD4A /* main.m in Sources */,

@@ -16,6 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+ 
     /*
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     //self.window.backgroundColor = [UIColor whiteColor];
@@ -25,21 +26,33 @@
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
-     */
+ 
     
-    /*
+
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     return YES;
      */
+     
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     DeckViewController *controller = [[DeckViewController alloc] initWithManagedObjectContext:self.managedObjectContext];
     controller = (DeckViewController *)navigationController.topViewController;
-    //self.deckViewController = self.navigationController.topViewController;
+    controller.managedObjectContext = self.managedObjectContext;
+
     return YES;
     
 }
+
+/*
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Override point for customization after application launch.
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    DeckViewController *controller = (DeckViewController *)navigationController.topViewController;
+    controller.managedObjectContext = self.managedObjectContext;
+    return YES;
+}*/
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

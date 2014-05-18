@@ -21,6 +21,7 @@
 
 - (IBAction)cancelPressed:(id)sender;
 - (IBAction)savePressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic)Card *card;
 @property (strong, nonatomic)Deck *deck;

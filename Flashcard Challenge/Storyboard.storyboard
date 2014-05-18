@@ -251,6 +251,7 @@
                         <outlet property="difficulty" destination="BKo-sp-Eg7" id="cKe-b6-Wyo"/>
                         <outlet property="questionImage" destination="XUw-Gz-q77" id="f2b-ub-5tH"/>
                         <outlet property="questionTextView" destination="kM4-L0-9IP" id="GVu-Dd-SlP"/>
+                        <outlet property="scrollView" destination="wwK-rY-jeK" id="chE-JT-B7Y"/>
                         <outlet property="solutionImage" destination="cvD-Oy-eui" id="5Yt-Wz-2NH"/>
                         <outlet property="solutionTextView" destination="gAz-9L-ejt" id="8hu-wn-jMc"/>
                     </connections>

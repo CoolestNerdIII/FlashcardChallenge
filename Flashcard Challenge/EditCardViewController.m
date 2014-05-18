@@ -18,7 +18,10 @@
     UIImage * qImage;
     UIImage * sImage;
     
+    
+    
 }
+@property (strong, nonatomic) IBOutlet UITextView *activeField;
 @end
 
 @implementation EditCardViewController
@@ -77,6 +80,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+
+    // Register for keyboard notifications while the view is visible.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification
+object:self.view.window]; [[NSNotificationCenter defaultCenter] addObserver:self
+                                                                   selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification
+                                                                     object:self.view.window];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    // Unregister for keyboard notifications while the view is not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
 
 /*
  #pragma mark - Navigation
@@ -167,11 +187,31 @@
     [self.view endEditing:YES];
 }
 
+- (void)keyboardDidShow:(NSNotification *)n {
+    // Find top of keyboard input view (i.e. picker)
+    CGRect keyboardRect = [[[n userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil]; CGFloat keyboardTop = keyboardRect.origin.y;
+    // Resize scroll view
+    CGRect newScrollViewFrame = CGRectMake(0, 0, self.view.bounds.size.width, keyboardTop);
+    newScrollViewFrame.size.height = keyboardTop - self.view.bounds.origin.y;
+    [self.scrollView setFrame:newScrollViewFrame];
+    // Scroll to the active Text-Field
+    [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES]; }
+
+- (void)keyboardWillHide:(NSNotification *)n {
+    CGRect defaultFrame = CGRectMake(self.scrollView.frame.origin.x,
+                                     self.scrollView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    
+    // Reset Scrollview to the same size as the containing view
+    [self.scrollView setFrame:defaultFrame];
+    // Scroll to the top again
+    [self.scrollView scrollRectToVisible:self.questionTextView.frame
+                                animated:YES];
+}
+
 #pragma mark - Textview classes
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    NSLog(@"Began Editting");
-    NSLog(@"%@", textView);
     if (textView == self.questionTextView) {
         if ([textView.text isEqualToString:questionPlaceholder]) {
             textView.text = @"";
@@ -185,12 +225,12 @@
             textView.textColor = [UIColor blackColor]; //optional
         }
     }
+    _activeField =textView;
     [textView becomeFirstResponder];
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    NSLog(@"End Editting");
     if (textView == self.questionTextView) {
         if ([textView.text isEqualToString:@""]) {
             textView.text = questionPlaceholder;
@@ -203,7 +243,7 @@
             textView.textColor = [UIColor lightGrayColor]; //optional
         }
     }
-    
+    _activeField = nil;
     [textView resignFirstResponder];
 }
 

@@ -30,27 +30,28 @@
     
     NSEntityDescription *wordEntityDescription = [NSEntityDescription entityForName:@"Card" inManagedObjectContext:self.deck.managedObjectContext];
     Card *newCard = (Card *)[[NSManagedObject alloc] initWithEntity:wordEntityDescription
-                             insertIntoManagedObjectContext:self.deck.managedObjectContext];
+                                     insertIntoManagedObjectContext:self.deck.managedObjectContext];
     
     [CardEditViewController editCard:newCard inNavigationController:self.navigationController completion:^(CardEditViewController *sender, BOOL canceled)
-    {
-        if (canceled)
-        {
-            [self.deck.managedObjectContext deleteObject:newCard];
-        }
-        else
-        {
-            [self.deck addCardsObject:newCard];
-            NSError *error;
-            if (![self.deck.managedObjectContext save:&error])
-            {
-                NSLog(@"Error saving context: %@", error);
-            }
-            [self.tableView reloadData];
-        }
-        [self.navigationController popViewControllerAnimated:YES];
-    
-    }];
+     {
+         if (canceled)
+         {
+             [self.deck.managedObjectContext deleteObject:newCard];
+         }
+         else
+         {
+             [self.deck addCardsObject:newCard];
+             
+             NSError *error;
+             if (![self.deck.managedObjectContext save:&error])
+             {
+                 NSLog(@"Error saving context: %@", error);
+             }
+             [self.tableView reloadData];
+         }
+         [self.navigationController popViewControllerAnimated:YES];
+         
+     }];
     
     
     
@@ -59,11 +60,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIBarButtonItem *addButton =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                  target:self action:@selector(add)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    /*
+     UIBarButtonItem *addButton =
+     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+     target:self action:@selector(add)];
+     self.navigationItem.rightBarButtonItem = addButton;*/
     
     self.title = self.deck.name;
 }
@@ -108,33 +109,19 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
-    [CardEditViewController editCard:card inNavigationController:self.navigationController completion:^(CardEditViewController *sender, BOOL canceled)
-    {
-        NSError *error;
-        if (![self.deck.managedObjectContext save:&error])
-        {
-            NSLog(@"Error saving context: %@", error);
-        }
-        [self.tableView reloadData];
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
-}
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-    forRowAtIndexPath:(NSIndexPath *)indexPath
+forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
@@ -152,23 +139,39 @@
 }
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
-/*
+
 #pragma mark - Navigation
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
+    [CardEditViewController editCard:card inNavigationController:self.navigationController completion:^(CardEditViewController *sender, BOOL canceled)
+     {
+         NSError *error;
+         if (![self.deck.managedObjectContext save:&error])
+         {
+             NSLog(@"Error saving context: %@", error);
+         }
+         [self.tableView reloadData];
+         [self.navigationController popViewControllerAnimated:YES];
+     }];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -176,6 +179,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

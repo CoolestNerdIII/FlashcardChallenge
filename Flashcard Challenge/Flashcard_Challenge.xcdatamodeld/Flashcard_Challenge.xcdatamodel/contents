@@ -11,13 +11,13 @@
     </entity>
     <entity name="Deck" representedClassName="Deck" syncable="YES">
         <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="name" attributeType="String" defaultValueString="New Deck" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" minValueString="1" defaultValueString="New Deck" indexed="YES" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="thumnail" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Card" inverseName="deck" inverseEntity="Card" syncable="YES"/>
     </entity>
     <elements>
         <element name="Card" positionX="-54" positionY="-9" width="128" height="148"/>
-        <element name="Deck" positionX="-414" positionY="-36" width="128" height="118"/>
+        <element name="Deck" positionX="-414" positionY="-36" width="128" height="120"/>
     </elements>
 </model>

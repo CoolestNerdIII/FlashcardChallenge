@@ -8,8 +8,10 @@
 
 #import "DeckViewController.h"
 #import "CardsViewController.h"
-
 #import "ModeSelectionViewController.h"
+
+#define kFirstAlertViewTag 1
+#define kSecondAlertViewTag 2
 
 @interface DeckViewController ()
 
@@ -43,9 +45,9 @@
     if (self.fetchedResultsController.fetchedObjects.count == 0)
     {
         NSEntityDescription *deckEntityDescription = [NSEntityDescription entityForName:@"Deck"
-                    inManagedObjectContext:self.managedObjectContext];
+                                                                 inManagedObjectContext:self.managedObjectContext];
         Deck *newDeck = (Deck *)[[NSManagedObject alloc] initWithEntity:deckEntityDescription
-                                    insertIntoManagedObjectContext:self.managedObjectContext];
+                                         insertIntoManagedObjectContext:self.managedObjectContext];
         newDeck.name = @"Deck 1";
         NSError *error;
         if (![self.managedObjectContext save:&error])
@@ -90,30 +92,24 @@
     }
     
     Deck *deck = (Deck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-
+    
     cell.textLabel.text = deck.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"(%lu)", (unsigned long)deck.cards.count];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    Deck *deck = (Deck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    ModeSelectionViewController *detailViewController = [[ModeSelectionViewController alloc] initWithDeck:deck];
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
+
 
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)
 editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -135,22 +131,22 @@ editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -158,9 +154,34 @@ editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"modeSelectionSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Deck *deck = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        
+        ModeSelectionViewController* detailViewController = [segue destinationViewController];
+        detailViewController.deck = deck;
+        
+        //viewTaskController.managedObjectContext = self.managedObjectContext;
+        //viewTaskController.managedTaskObject=taskObject;
+        
+        
+        //Deck *deck = (Deck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+        //ModeSelectionViewController *detailViewController = [[ModeSelectionViewController alloc] initWithDeck:deck];
+        //NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        //[[segue destinationViewController] setDetailItem:object];
+    }
 }
-*/
 
+/*
+ - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ 
+ Deck *deck = (Deck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+ ModeSelectionViewController *detailViewController = [[ModeSelectionViewController alloc] initWithDeck:deck];
+ [self.navigationController pushViewController:detailViewController animated:YES];
+ }
+ */
 #pragma mark - Core Data Helper
 -(void)fetchDecks
 {
@@ -186,6 +207,7 @@ editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
                                                           message:@"Enter a name for the new deck" delegate:self
                                                 cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     inputAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    inputAlert.tag = kFirstAlertViewTag;
     [inputAlert show];
 }
 
@@ -193,23 +215,37 @@ editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
-    {
-        NSEntityDescription *deckEntityDescription = [NSEntityDescription entityForName:@"Deck"
-                                                inManagedObjectContext:self.managedObjectContext];
+    if (alertView.tag == kFirstAlertViewTag) {
         
-        Deck *newDeck = (Deck *)[[NSManagedObject alloc] initWithEntity:deckEntityDescription
-                                                   insertIntoManagedObjectContext:self.managedObjectContext];
-        newDeck.name  = [alertView textFieldAtIndex:0].text;
-        NSError *error;
-        
-        if (![self.managedObjectContext save:&error])
+        if (buttonIndex == 1)
         {
-            NSLog(@"Error saving context: %@", error);
+            NSEntityDescription *deckEntityDescription = [NSEntityDescription entityForName:@"Deck"
+                                                                     inManagedObjectContext:self.managedObjectContext];
+            
+            Deck *newDeck = (Deck *)[[NSManagedObject alloc] initWithEntity:deckEntityDescription
+                                             insertIntoManagedObjectContext:self.managedObjectContext];
+            
+            if ([[alertView textFieldAtIndex:0].text length] == 0) {
+                UIAlertView * errorAlert = [[UIAlertView alloc]initWithTitle:@"LengthError" message:@"Name must have at least 1 character." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                errorAlert.alertViewStyle = UIAlertViewStyleDefault;
+                errorAlert.tag = kSecondAlertViewTag;
+                [errorAlert show];
+            }
+            else
+            {
+                newDeck.name  = [alertView textFieldAtIndex:0].text;
+                newDeck.creationDate = [NSDate date];
+                NSError *error;
+                
+                if (![self.managedObjectContext save:&error])
+                {
+                    NSLog(@"Error saving context: %@", error);
+                }
+                
+                [self fetchDecks];
+                [self.tableView reloadData];
+            }
         }
-        
-        [self fetchDecks];
-        [self.tableView reloadData];
     }
 }
 

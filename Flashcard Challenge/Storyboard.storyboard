@@ -92,81 +92,142 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCc-RA-IxM">
-                                <rect key="frame" x="118" y="73" width="85" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Question">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kdy-gI-OFI">
-                                <rect key="frame" x="123" y="107" width="75" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="Enter Question Here (Required) If desired, also enter image above (optional)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-yY-jZc">
-                                <rect key="frame" x="20" y="190" width="280" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK5-16-HYJ">
-                                <rect key="frame" x="118" y="364" width="85" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Solution">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rs9-zn-6jn">
-                                <rect key="frame" x="123" y="398" width="75" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="Enter Solution Here. (Required) If desired, also enter image above (optional)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RsG-TO-ik5">
-                                <rect key="frame" x="20" y="481" width="280" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGS-56-IjM">
-                                <rect key="frame" x="20" y="258" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Select a Difficulty">
-                                        <attributes>
-                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="dZJ-ot-ixS">
-                                <rect key="frame" x="20" y="305" width="280" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Easy"/>
-                                    <segment title="Normal"/>
-                                    <segment title="Hard"/>
-                                </segments>
-                            </segmentedControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwK-rY-jeK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8w-Jt-SwO">
+                                        <rect key="frame" x="118" y="73" width="85" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="Cpm-eY-mRm"/>
+                                            <constraint firstAttribute="height" constant="26" id="grZ-J5-lmh"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Question">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XUw-Gz-q77">
+                                        <rect key="frame" x="123" y="107" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="FKq-cd-CH5"/>
+                                            <constraint firstAttribute="width" constant="75" id="Lj5-ip-vx0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Enter Question Here (Required) If desired, also enter image above (optional)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kM4-L0-9IP">
+                                        <rect key="frame" x="20" y="190" width="280" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="67" id="JmP-9x-BJJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqK-0d-GXy">
+                                        <rect key="frame" x="118" y="364" width="85" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="Efa-ZA-Ptl"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Solution">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cvD-Oy-eui">
+                                        <rect key="frame" x="123" y="398" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="EOG-KK-Vfz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Enter Solution Here. (Required) If desired, also enter image above (optional)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gAz-9L-ejt">
+                                        <rect key="frame" x="20" y="481" width="280" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="67" id="d9c-gM-nlU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-9M-LrD">
+                                        <rect key="frame" x="20" y="258" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="gMO-0W-rZ7"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Select a Difficulty">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="BKo-sp-Eg7">
+                                        <rect key="frame" x="20" y="306" width="280" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Easy"/>
+                                            <segment title="Normal"/>
+                                            <segment title="Hard"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Q8w-Jt-SwO" firstAttribute="centerX" secondItem="XUw-Gz-q77" secondAttribute="centerX" id="3fP-Jj-lRu"/>
+                                    <constraint firstItem="gAz-9L-ejt" firstAttribute="top" secondItem="cvD-Oy-eui" secondAttribute="bottom" constant="8" symbolic="YES" id="7KN-Me-tFQ"/>
+                                    <constraint firstItem="zqK-0d-GXy" firstAttribute="centerX" secondItem="wwK-rY-jeK" secondAttribute="centerX" id="86I-0e-0p7"/>
+                                    <constraint firstItem="BKo-sp-Eg7" firstAttribute="leading" secondItem="Lge-9M-LrD" secondAttribute="leading" id="ANK-PA-7nO"/>
+                                    <constraint firstItem="cvD-Oy-eui" firstAttribute="top" secondItem="zqK-0d-GXy" secondAttribute="bottom" constant="8" symbolic="YES" id="AS5-ya-Bcg"/>
+                                    <constraint firstAttribute="trailing" secondItem="kM4-L0-9IP" secondAttribute="trailing" constant="20" symbolic="YES" id="JN9-f2-KXs"/>
+                                    <constraint firstItem="zqK-0d-GXy" firstAttribute="top" secondItem="BKo-sp-Eg7" secondAttribute="bottom" constant="30" id="LKo-fv-4wg"/>
+                                    <constraint firstItem="XUw-Gz-q77" firstAttribute="top" secondItem="Q8w-Jt-SwO" secondAttribute="bottom" constant="8" symbolic="YES" id="N9v-MU-hz0"/>
+                                    <constraint firstItem="BKo-sp-Eg7" firstAttribute="trailing" secondItem="gAz-9L-ejt" secondAttribute="trailing" id="NsO-zo-wrk"/>
+                                    <constraint firstItem="Lge-9M-LrD" firstAttribute="leading" secondItem="kM4-L0-9IP" secondAttribute="leading" id="PWW-9P-cZI"/>
+                                    <constraint firstItem="kM4-L0-9IP" firstAttribute="trailing" secondItem="Lge-9M-LrD" secondAttribute="trailing" id="Sg4-iV-JU5"/>
+                                    <constraint firstAttribute="bottom" secondItem="gAz-9L-ejt" secondAttribute="bottom" constant="20" symbolic="YES" id="TeD-hG-Vcr"/>
+                                    <constraint firstItem="Q8w-Jt-SwO" firstAttribute="top" secondItem="wwK-rY-jeK" secondAttribute="top" constant="73" id="bBl-o6-V9c"/>
+                                    <constraint firstItem="kM4-L0-9IP" firstAttribute="top" secondItem="XUw-Gz-q77" secondAttribute="bottom" constant="8" symbolic="YES" id="dDv-ET-KjQ"/>
+                                    <constraint firstItem="cvD-Oy-eui" firstAttribute="leading" secondItem="XUw-Gz-q77" secondAttribute="leading" id="gJt-T8-wh8"/>
+                                    <constraint firstItem="kM4-L0-9IP" firstAttribute="leading" secondItem="wwK-rY-jeK" secondAttribute="leading" constant="20" symbolic="YES" id="gPx-Ha-EVP"/>
+                                    <constraint firstItem="cvD-Oy-eui" firstAttribute="trailing" secondItem="XUw-Gz-q77" secondAttribute="trailing" id="i6M-7g-MZZ"/>
+                                    <constraint firstItem="Lge-9M-LrD" firstAttribute="top" secondItem="kM4-L0-9IP" secondAttribute="bottom" constant="1" id="kFM-U1-EPj"/>
+                                    <constraint firstItem="Q8w-Jt-SwO" firstAttribute="leading" secondItem="zqK-0d-GXy" secondAttribute="leading" id="mGE-8x-aZ2"/>
+                                    <constraint firstItem="BKo-sp-Eg7" firstAttribute="centerX" secondItem="zqK-0d-GXy" secondAttribute="centerX" id="mXV-8e-n3m"/>
+                                    <constraint firstItem="Q8w-Jt-SwO" firstAttribute="trailing" secondItem="zqK-0d-GXy" secondAttribute="trailing" id="nmy-SC-g4Z"/>
+                                    <constraint firstItem="BKo-sp-Eg7" firstAttribute="leading" secondItem="gAz-9L-ejt" secondAttribute="leading" id="qib-Ca-TxH"/>
+                                    <constraint firstItem="BKo-sp-Eg7" firstAttribute="top" secondItem="Lge-9M-LrD" secondAttribute="bottom" constant="27" id="r4x-of-8wd"/>
+                                    <constraint firstItem="BKo-sp-Eg7" firstAttribute="trailing" secondItem="Lge-9M-LrD" secondAttribute="trailing" id="uwn-me-vqp"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wwK-rY-jeK" secondAttribute="bottom" id="X9J-qy-nnm"/>
+                            <constraint firstAttribute="trailing" secondItem="wwK-rY-jeK" secondAttribute="trailing" id="dyv-8j-fvs"/>
+                            <constraint firstItem="wwK-rY-jeK" firstAttribute="leading" secondItem="gfi-Mn-twR" secondAttribute="leading" id="gui-hc-jP5"/>
+                            <constraint firstItem="wwK-rY-jeK" firstAttribute="top" secondItem="gfi-Mn-twR" secondAttribute="top" id="s12-sg-VDa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7gT-jK-Vbi">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TFo-tF-5sc">
@@ -181,11 +242,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="difficulty" destination="dZJ-ot-ixS" id="Lmp-RO-MeD"/>
-                        <outlet property="questionImage" destination="Kdy-gI-OFI" id="nYy-6d-apn"/>
-                        <outlet property="questionTextView" destination="1ar-yY-jZc" id="Ah4-Fi-foz"/>
-                        <outlet property="solutionImage" destination="rs9-zn-6jn" id="XPJ-oc-Gv1"/>
-                        <outlet property="solutionTextView" destination="RsG-TO-ik5" id="o40-73-5Zh"/>
+                        <outlet property="difficulty" destination="BKo-sp-Eg7" id="cKe-b6-Wyo"/>
+                        <outlet property="questionImage" destination="XUw-Gz-q77" id="f2b-ub-5tH"/>
+                        <outlet property="questionTextView" destination="kM4-L0-9IP" id="GVu-Dd-SlP"/>
+                        <outlet property="solutionImage" destination="cvD-Oy-eui" id="5Yt-Wz-2NH"/>
+                        <outlet property="solutionTextView" destination="gAz-9L-ejt" id="8hu-wn-jMc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wr8-eB-Tx0" userLabel="First Responder" sceneMemberID="firstResponder"/>

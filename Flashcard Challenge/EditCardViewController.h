@@ -10,7 +10,7 @@
 #import "Deck.h"
 #import "Card.h"
 
-@interface EditCardViewController : UIViewController <UIAlertViewDelegate>
+@interface EditCardViewController : UIViewController <UIAlertViewDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *questionImage;
 @property (strong, nonatomic) IBOutlet UIImageView *solutionImage;

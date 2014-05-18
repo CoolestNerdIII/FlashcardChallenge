@@ -25,53 +25,12 @@
     return self;
 }
 
-- (IBAction)add
-{
-    /*
-    NSEntityDescription *wordEntityDescription = [NSEntityDescription entityForName:@"Card" inManagedObjectContext:self.deck.managedObjectContext];
-    Card *newCard = (Card *)[[NSManagedObject alloc] initWithEntity:wordEntityDescription
-                                     insertIntoManagedObjectContext:self.deck.managedObjectContext];
-    [self.deck addCardsObject:newCard];
-    NSLog(@"Initial State");
-    NSLog(@"%@", newCard.question);
-    NSLog(@"%@", newCard.answer);
-
-    
-    //Deck *deck = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    CardEditViewController *vc = [[CardEditViewController alloc] init];
-    vc.card = newCard;
-    */
-    /*
-    [CardEditViewController editCard:newCard inNavigationController:self.navigationController completion:^(CardEditViewController *sender, BOOL canceled)
-     {
-         if (canceled)
-         {
-             [self.deck.managedObjectContext deleteObject:newCard];
-         }
-         else
-         {
-             [self.deck addCardsObject:newCard];
-             
-             NSError *error;
-             if (![self.deck.managedObjectContext save:&error])
-             {
-                 NSLog(@"Error saving context: %@", error);
-             }
-             [self.tableView reloadData];
-         }
-         [self.navigationController popViewControllerAnimated:YES];
-     }];*/
-}
+- (IBAction)add{}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    /*
-     UIBarButtonItem *addButton =
-     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-     target:self action:@selector(add)];
-     self.navigationItem.rightBarButtonItem = addButton;*/
-    
+
     self.title = self.deck.name;
 }
 
@@ -116,7 +75,7 @@
 
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath
+    forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
@@ -152,30 +111,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 #pragma mark - Navigation
 
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"Selected");
-    /*
-    Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
-    [CardEditViewController editCard:card inNavigationController:self.navigationController completion:^(CardEditViewController *sender, BOOL canceled)
-     {
-         NSError *error;
-         if (![self.deck.managedObjectContext save:&error])
-         {
-             NSLog(@"Error saving context: %@", error);
-         }
-         [self.tableView reloadData];
-         [self.navigationController popViewControllerAnimated:YES];
-     }];*/
-}
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
     EditCardViewController *vc = segue.destinationViewController;
-    NSLog(@"%@", segue.identifier);
 
     if ([segue.identifier isEqualToString:@"newCardSegue"]) {
         NSEntityDescription *cardEntityDescription = [NSEntityDescription entityForName:@"Card" inManagedObjectContext:self.deck.managedObjectContext];

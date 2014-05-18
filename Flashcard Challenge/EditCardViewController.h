@@ -10,17 +10,19 @@
 #import "Deck.h"
 #import "Card.h"
 
-@interface EditCardViewController : UIViewController <UIAlertViewDelegate, UITextViewDelegate>
+@interface EditCardViewController : UIViewController <UIAlertViewDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *questionImage;
 @property (strong, nonatomic) IBOutlet UIImageView *solutionImage;
 
 @property (strong, nonatomic) IBOutlet UITextView *questionTextView;
 @property (strong, nonatomic) IBOutlet UITextView *solutionTextView;
+@property (strong, nonatomic) IBOutlet UITextField *nicknameField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *difficulty;
 
 - (IBAction)cancelPressed:(id)sender;
 - (IBAction)savePressed:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic)Card *card;

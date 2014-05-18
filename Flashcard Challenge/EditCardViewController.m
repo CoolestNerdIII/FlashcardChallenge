@@ -10,6 +10,8 @@
 
 #define kFirstAlertViewTag 1
 #define kSecondAlertViewTag 2
+#define kFirstActionViewTag 1
+#define kSecondActionViewTag 2
 
 @interface EditCardViewController ()
 {
@@ -17,10 +19,9 @@
     NSString * solutionPlaceholder;
     UIImage * qImage;
     UIImage * sImage;
-    
-    
-    
+    UIImage * placeholderImage;
 }
+
 @property (strong, nonatomic) IBOutlet UITextView *activeField;
 @end
 
@@ -33,13 +34,14 @@
     
     qImage = [UIImage imageWithData:self.card.qImage];
     sImage = [UIImage imageWithData:self.card.aImage];
+    placeholderImage = [UIImage imageNamed:@"imagePlaceholder.png"];
     
     if (qImage == nil) {
-        qImage = [UIImage imageNamed:@"Small_Question_Mark@2x.png"];
+        qImage = placeholderImage;
     }
     
     if (sImage == nil) {
-        sImage = [UIImage imageNamed:@"Small_Question_Mark.png"];
+        sImage = placeholderImage;
     }
     
     [self hideKeyboardWhenBackgroundIsTapped];
@@ -48,7 +50,8 @@
     self.questionImage.image = qImage;
     self.solutionTextView.text = self.card.answer;
     self.solutionImage.image = sImage;
-    self.difficulty.selectedSegmentIndex = [self.card.rating integerValue];
+    self.difficulty.selectedSegmentIndex = [self.card.rating integerValue]-1;
+    self.nicknameField.text = self.card.nickname;
     
     
     questionPlaceholder = @"Enter Question Here";
@@ -59,18 +62,6 @@
     
     if ([self.solutionTextView.text isEqualToString:solutionPlaceholder] )
         self.solutionTextView.textColor = [UIColor lightGrayColor];
-    
-    //Add ability to tap to edit picture
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editQImage:)];
-    [tapRecognizer setNumberOfTapsRequired:1];
-
-    [self.questionImage addGestureRecognizer:tapRecognizer];
-    
-    UITapGestureRecognizer *tapRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editSImage:)];
-    [tapRecognizer2 setNumberOfTapsRequired:1];
-    [self.solutionImage addGestureRecognizer:tapRecognizer2];
-    
-    
 }
 
 
@@ -98,16 +89,7 @@ name:UIKeyboardDidShowNotification object:nil];
                                                   object:nil];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Handle Core Data
 
 - (IBAction)cancelPressed:(id)sender {
     [self hideKeyboard];
@@ -142,8 +124,14 @@ name:UIKeyboardDidShowNotification object:nil];
         _card.question = self.questionTextView.text;
         _card.answer = self.solutionTextView.text;
         _card.rating = [NSNumber numberWithInteger:(self.difficulty.selectedSegmentIndex + 1)];
-        self.card.qImage = UIImagePNGRepresentation(self.questionImage.image);
-        self.card.aImage = UIImagePNGRepresentation(self.solutionImage.image);
+        self.card.nickname = self.nicknameField.text;
+
+        //Save Image if Image is set and not the placeholder
+        if (self.questionImage.image != placeholderImage)
+            self.card.qImage = UIImagePNGRepresentation(self.questionImage.image);
+        if (self.solutionImage.image != placeholderImage)
+            self.card.aImage = UIImagePNGRepresentation(self.solutionImage.image);
+
         
         NSError *error;
         if (![self.deck.managedObjectContext save:&error])
@@ -154,6 +142,19 @@ name:UIKeyboardDidShowNotification object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
+-(void)deleteCard{
+    [self.deck.managedObjectContext deleteObject:self.card];
+    
+    NSError *error;
+    BOOL success = [self.deck.managedObjectContext save:&error];
+    if (!success)
+        NSLog(@"Error saving context: %@", error);
+    
+
+}
+
+#pragma mark - AlertView Delegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -171,11 +172,7 @@ name:UIKeyboardDidShowNotification object:nil];
     }
 }
 
--(void)deleteCard{
-    [self.deck.managedObjectContext deleteObject:self.card];
-}
-
-#pragma mark - INTERACTION
+#pragma mark - Keyboard Interaction
 
 - (void)hideKeyboardWhenBackgroundIsTapped
 {
@@ -183,6 +180,7 @@ name:UIKeyboardDidShowNotification object:nil];
     [tgr setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tgr];
 }
+
 - (void)hideKeyboard {
     [self.view endEditing:YES];
 }
@@ -209,14 +207,13 @@ name:UIKeyboardDidShowNotification object:nil];
                                 animated:YES];
 }
 
-#pragma mark - Textview classes
+#pragma mark - Textview Delegates
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if (textView == self.questionTextView) {
         if ([textView.text isEqualToString:questionPlaceholder]) {
             textView.text = @"";
             textView.textColor = [UIColor blackColor]; //optional
-            NSLog(@"Yeah");
         }
     }
     else if (textView == self.solutionTextView){
@@ -250,10 +247,69 @@ name:UIKeyboardDidShowNotification object:nil];
 #pragma mark - Add image touch functionality
 
 -(IBAction)editQImage:(id)sender{
-    NSLog(@"Touch Registered");
+    UIActionSheet *qActionScheet = [[UIActionSheet alloc] initWithTitle:@"Upload Image From: " delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photo Library", nil];
+    qActionScheet.tag = kFirstActionViewTag;
+    [qActionScheet showInView:self.view];
+}
+
+-(IBAction)editSImage:(id)sender{
+    UIActionSheet *sActionScheet = [[UIActionSheet alloc] initWithTitle:@"Upload Image From: " delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photo Library", nil];
+    sActionScheet.tag = kSecondActionViewTag;
+    [sActionScheet showInView:self.view];
+}
+
+#pragma mark - Delegates for UIImagePicker
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex != 2) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.view.tag = (actionSheet.tag ==kFirstActionViewTag ? kFirstActionViewTag :kSecondActionViewTag);
+        imagePicker.allowsEditing = NO;
+        
+        switch (buttonIndex) {
+            case 0:
+                imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                break;
+            case 1:
+                imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                break;
+                
+            default:
+                break;
+        }
+
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    switch (picker.view.tag) {
+        case kFirstActionViewTag:
+            qImage = info[UIImagePickerControllerOriginalImage];
+            [self.questionImage setImage:qImage];
+            break;
+        case kSecondActionViewTag:
+            sImage = info[UIImagePickerControllerOriginalImage];
+            self.solutionImage.image = sImage;
+            [self.solutionImage setImage:sImage];
+            break;
+            
+        default:
+            break;
+    }
     
 }
 
--(IBAction)editSImage:(id)sender{}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

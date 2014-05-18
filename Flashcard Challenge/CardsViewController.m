@@ -155,8 +155,11 @@
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Card"];
     NSString *cacheName = [@"Card" stringByAppendingString:@"Cache"];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+    fetchRequest.sortDescriptors = [NSArray arrayWithObjects:
+                               [NSSortDescriptor sortDescriptorWithKey:@"nickname" ascending:YES],
+                                    [NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES], nil];
+    
     self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                      initWithFetchRequest:fetchRequest managedObjectContext:self.deck.managedObjectContext
                                      sectionNameKeyPath:nil cacheName:cacheName];

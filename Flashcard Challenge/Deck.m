@@ -2,19 +2,20 @@
 //  Deck.m
 //  Flashcard Challenge
 //
-//  Created by Paul Wilson on 5/16/14.
+//  Created by Paul Wilson on 5/18/14.
 //  Copyright (c) 2014 Paul Wilson. All rights reserved.
 //
 
 #import "Deck.h"
+#import "Card.h"
 
 
 @implementation Deck
 
-@dynamic name;
 @dynamic creationDate;
-@dynamic thumnail;
+@dynamic name;
 @dynamic score;
+@dynamic thumnail;
 @dynamic cards;
 
 @end

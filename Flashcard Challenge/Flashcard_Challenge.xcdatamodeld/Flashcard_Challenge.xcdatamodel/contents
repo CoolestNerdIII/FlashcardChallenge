@@ -3,7 +3,7 @@
     <entity name="Card" representedClassName="Card" syncable="YES">
         <attribute name="aImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="answer" attributeType="String" defaultValueString="Enter Answer Here" syncable="YES"/>
-        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="numCorrect" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="qImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="question" attributeType="String" defaultValueString="Enter Question Here" indexed="YES" syncable="YES"/>

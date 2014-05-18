@@ -32,6 +32,8 @@
     [super viewDidLoad];
 
     self.title = self.deck.name;
+    [self fetchCards];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,7 +52,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.deck.cards.count;
+    //return self.deck.cards.count;
+    return self.fetchedResultsController.fetchedObjects.count;
 }
 
 
@@ -66,8 +69,18 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
-    
+    Card *card = (Card *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+
+    //Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
+    /*
+    if ([card.nickname isEqualToString:@""]) {
+        cell.textLabel.text = card.question;
+    }
+    else
+    {
+        cell.textLabel.text = card.nickname;
+
+    }*/
     cell.textLabel.text = card.question;
     
     return cell;
@@ -87,7 +100,7 @@
         {
             NSLog(@"Error saving context: %@", error);
         }
-        
+        [self fetchCards];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }
 }
@@ -144,8 +157,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //[self fetchDecks];
     //[self.deck.managedObjectContext refreshObject:self.deck mergeChanges:YES];
+    [self fetchCards];
     [self.tableView reloadData];
 }
 
@@ -157,8 +170,8 @@
     NSString *cacheName = [@"Card" stringByAppendingString:@"Cache"];
     
     fetchRequest.sortDescriptors = [NSArray arrayWithObjects:
-                               [NSSortDescriptor sortDescriptorWithKey:@"nickname" ascending:YES],
-                                    [NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES], nil];
+                               [NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES],
+                                    [NSSortDescriptor sortDescriptorWithKey:@"nickname" ascending:YES], nil];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                      initWithFetchRequest:fetchRequest managedObjectContext:self.deck.managedObjectContext

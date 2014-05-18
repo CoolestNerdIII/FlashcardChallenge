@@ -16,6 +16,7 @@
 @property (strong, nonatomic)NSFetchedResultsController *fetchedResultsController;
 
 
+
 - (id)initWithDeck:(Deck *) deck;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addCard;
 

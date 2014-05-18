@@ -40,7 +40,7 @@
         <scene sceneID="64g-0z-UmQ">
             <objects>
                 <tableViewController id="EH8-WW-XwF" customClass="CardsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lW4-Sx-XLH">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lW4-Sx-XLH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,7 +53,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="cHb-kA-EuY" kind="push" identifier="cardEditSegue" id="76v-8r-pVW"/>
+                                    <segue destination="7xL-pe-Dhf" kind="push" identifier="cardEditSegue" id="0Ow-S2-g0o"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,6 +67,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vt0-fy-gxs">
                             <connections>
                                 <action selector="add" destination="EH8-WW-XwF" id="sDk-dZ-vGU"/>
+                                <segue destination="7xL-pe-Dhf" kind="push" identifier="newCardSegue" id="9Se-Ci-8Bn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -79,19 +80,19 @@
             </objects>
             <point key="canvasLocation" x="1462" y="-8"/>
         </scene>
-        <!--Card Edit View Controller-->
-        <scene sceneID="AE2-Zc-yW2">
+        <!--Edit Card View Controller-->
+        <scene sceneID="f6e-VC-Mrw">
             <objects>
-                <viewController id="cHb-kA-EuY" customClass="CardEditViewController" sceneMemberID="viewController">
+                <viewController id="7xL-pe-Dhf" customClass="EditCardViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ybE-Et-LsR"/>
-                        <viewControllerLayoutGuide type="bottom" id="91t-nH-t1P"/>
+                        <viewControllerLayoutGuide type="top" id="Ov5-oy-JOV"/>
+                        <viewControllerLayoutGuide type="bottom" id="xVi-nQ-AfM"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tav-Dr-kvW">
+                    <view key="view" contentMode="scaleToFill" id="gfi-Mn-twR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcm-GM-zGt">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCc-RA-IxM">
                                 <rect key="frame" x="118" y="73" width="85" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
@@ -105,18 +106,18 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jNK-Km-5Zm">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kdy-gI-OFI">
                                 <rect key="frame" x="123" y="107" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter Question Here (Required) If desired, also enter image above (optional)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GIV-Rz-AX6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="Enter Question Here (Required) If desired, also enter image above (optional)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-yY-jZc">
                                 <rect key="frame" x="20" y="190" width="280" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Gz-UA-xT7">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK5-16-HYJ">
                                 <rect key="frame" x="118" y="364" width="85" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
@@ -130,18 +131,18 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3G-47-fzn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rs9-zn-6jn">
                                 <rect key="frame" x="123" y="398" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter Solution Here. (Required) If desired, also enter image above (optional)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="F03-CG-h5d">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="Enter Solution Here. (Required) If desired, also enter image above (optional)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RsG-TO-ik5">
                                 <rect key="frame" x="20" y="481" width="280" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX6-pA-em9">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGS-56-IjM">
                                 <rect key="frame" x="20" y="258" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
@@ -155,34 +156,41 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="RIZ-Ic-Da5">
-                                <rect key="frame" x="20" y="304" width="280" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="dZJ-ot-ixS">
+                                <rect key="frame" x="20" y="305" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Easy"/>
                                     <segment title="Normal"/>
                                     <segment title="Hard"/>
                                 </segments>
-                                <connections>
-                                    <action selector="segmentSwitch:" destination="cHb-kA-EuY" eventType="valueChanged" id="ESP-al-618"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BvY-qB-ksj"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationItem key="navigationItem" id="7gT-jK-Vbi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TFo-tF-5sc">
+                            <connections>
+                                <action selector="cancelPressed:" destination="7xL-pe-Dhf" id="eWP-lQ-nHG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rgP-9l-47H">
+                            <connections>
+                                <action selector="savePressed:" destination="7xL-pe-Dhf" id="TB5-Vr-C30"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="difficulty" destination="RIZ-Ic-Da5" id="Plt-ra-mFX"/>
-                        <outlet property="questionImage" destination="jNK-Km-5Zm" id="sRF-Kh-ICT"/>
-                        <outlet property="questionTextView" destination="GIV-Rz-AX6" id="mhz-zE-Ifg"/>
-                        <outlet property="solutionImage" destination="k3G-47-fzn" id="ita-Fl-CMk"/>
-                        <outlet property="solutionTextView" destination="F03-CG-h5d" id="GHf-XT-NGk"/>
+                        <outlet property="difficulty" destination="dZJ-ot-ixS" id="Lmp-RO-MeD"/>
+                        <outlet property="questionImage" destination="Kdy-gI-OFI" id="nYy-6d-apn"/>
+                        <outlet property="questionTextView" destination="1ar-yY-jZc" id="Ah4-Fi-foz"/>
+                        <outlet property="solutionImage" destination="rs9-zn-6jn" id="XPJ-oc-Gv1"/>
+                        <outlet property="solutionTextView" destination="RsG-TO-ik5" id="o40-73-5Zh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uvr-XD-FlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wr8-eB-Tx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910" y="-8"/>
+            <point key="canvasLocation" x="1891" y="-8"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g8k-Yw-uH1">
@@ -364,4 +372,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="0Ow-S2-g0o"/>
+    </inferredMetricsTieBreakers>
 </document>

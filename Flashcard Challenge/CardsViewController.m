@@ -7,7 +7,7 @@
 //
 
 #import "CardsViewController.h"
-#import "CardEditViewController.h"
+#import "EditCardViewController.h"
 
 @interface CardsViewController ()
 
@@ -27,11 +27,21 @@
 
 - (IBAction)add
 {
-    
+    /*
     NSEntityDescription *wordEntityDescription = [NSEntityDescription entityForName:@"Card" inManagedObjectContext:self.deck.managedObjectContext];
     Card *newCard = (Card *)[[NSManagedObject alloc] initWithEntity:wordEntityDescription
                                      insertIntoManagedObjectContext:self.deck.managedObjectContext];
+    [self.deck addCardsObject:newCard];
+    NSLog(@"Initial State");
+    NSLog(@"%@", newCard.question);
+    NSLog(@"%@", newCard.answer);
+
     
+    //Deck *deck = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    CardEditViewController *vc = [[CardEditViewController alloc] init];
+    vc.card = newCard;
+    */
+    /*
     [CardEditViewController editCard:newCard inNavigationController:self.navigationController completion:^(CardEditViewController *sender, BOOL canceled)
      {
          if (canceled)
@@ -50,11 +60,7 @@
              [self.tableView reloadData];
          }
          [self.navigationController popViewControllerAnimated:YES];
-         
-     }];
-    
-    
-    
+     }];*/
 }
 
 - (void)viewDidLoad
@@ -79,7 +85,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
@@ -98,7 +103,7 @@
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -108,16 +113,6 @@
     
     return cell;
 }
-
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
 
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
@@ -160,6 +155,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"Selected");
+    /*
     Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
     [CardEditViewController editCard:card inNavigationController:self.navigationController completion:^(CardEditViewController *sender, BOOL canceled)
      {
@@ -170,14 +167,64 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
          }
          [self.tableView reloadData];
          [self.navigationController popViewControllerAnimated:YES];
-     }];
+     }];*/
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    EditCardViewController *vc = segue.destinationViewController;
+    NSLog(@"%@", segue.identifier);
+
+    if ([segue.identifier isEqualToString:@"newCardSegue"]) {
+        NSEntityDescription *cardEntityDescription = [NSEntityDescription entityForName:@"Card" inManagedObjectContext:self.deck.managedObjectContext];
+        Card *newCard = (Card *)[[NSManagedObject alloc] initWithEntity:cardEntityDescription
+                                         insertIntoManagedObjectContext:self.deck.managedObjectContext];
+        [self.deck addCardsObject:newCard];
+        
+        NSError *error;
+        if (![self.deck.managedObjectContext save:&error])
+        {
+            NSLog(@"Error in saved pressed with saving context: %@, %@", error, [error userInfo]);
+        }
+
+        vc.card = newCard;
+        vc.deck = self.deck;
+    }
+    else if ([segue.identifier isEqualToString:@"cardEditSegue"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
+        vc.card = card;
+        vc.deck = self.deck;
+
+    }
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    //[self fetchDecks];
+    //[self.deck.managedObjectContext refreshObject:self.deck mergeChanges:YES];
+    [self.tableView reloadData];
+}
+
+#pragma mark - Core Data Helper
+
+-(void)fetchCards
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Card"];
+    NSString *cacheName = [@"Card" stringByAppendingString:@"Cache"];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc]
+                                     initWithFetchRequest:fetchRequest managedObjectContext:self.deck.managedObjectContext
+                                     sectionNameKeyPath:nil cacheName:cacheName];
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error])
+    {
+        NSLog(@"Fetch failed: %@", error);
+    }
 }
 
 

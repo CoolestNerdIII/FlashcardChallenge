@@ -28,7 +28,7 @@
 		69783F1C1926DA710022DD4A /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69783F1B1926DA710022DD4A /* CardsViewController.m */; };
 		697E99721926DF3A00D6BB07 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697E99711926DF3A00D6BB07 /* Storyboard.storyboard */; };
 		697E9A0C1926EABE00D6BB07 /* ModeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697E9A0B1926EABE00D6BB07 /* ModeSelectionViewController.m */; };
-		697E9A131926FA5600D6BB07 /* CardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697E9A121926FA5600D6BB07 /* CardEditViewController.m */; };
+		69DBE4B8192870DA00E5C6EE /* EditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DBE4B7192870DA00E5C6EE /* EditCardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,8 @@
 		697E99711926DF3A00D6BB07 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		697E9A0A1926EABE00D6BB07 /* ModeSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeSelectionViewController.h; sourceTree = "<group>"; };
 		697E9A0B1926EABE00D6BB07 /* ModeSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeSelectionViewController.m; sourceTree = "<group>"; };
-		697E9A111926FA5600D6BB07 /* CardEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardEditViewController.h; sourceTree = "<group>"; };
-		697E9A121926FA5600D6BB07 /* CardEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardEditViewController.m; sourceTree = "<group>"; };
+		69DBE4B6192870DA00E5C6EE /* EditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCardViewController.h; sourceTree = "<group>"; };
+		69DBE4B7192870DA00E5C6EE /* EditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +196,8 @@
 				697E9A0B1926EABE00D6BB07 /* ModeSelectionViewController.m */,
 				69783F1A1926DA710022DD4A /* CardsViewController.h */,
 				69783F1B1926DA710022DD4A /* CardsViewController.m */,
-				697E9A111926FA5600D6BB07 /* CardEditViewController.h */,
-				697E9A121926FA5600D6BB07 /* CardEditViewController.m */,
+				69DBE4B6192870DA00E5C6EE /* EditCardViewController.h */,
+				69DBE4B7192870DA00E5C6EE /* EditCardViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -298,12 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				697E9A131926FA5600D6BB07 /* CardEditViewController.m in Sources */,
 				69783F141926D4980022DD4A /* Deck.m in Sources */,
 				69783EF01926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld in Sources */,
 				697E9A0C1926EABE00D6BB07 /* ModeSelectionViewController.m in Sources */,
 				69783F111926D4300022DD4A /* DeckViewController.m in Sources */,
 				69783EED1926D1AD0022DD4A /* AppDelegate.m in Sources */,
+				69DBE4B8192870DA00E5C6EE /* EditCardViewController.m in Sources */,
 				69783EE91926D1AD0022DD4A /* main.m in Sources */,
 				69783F1C1926DA710022DD4A /* CardsViewController.m in Sources */,
 				69783F171926D4980022DD4A /* Card.m in Sources */,

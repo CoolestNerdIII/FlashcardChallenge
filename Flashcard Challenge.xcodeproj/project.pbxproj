@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690F92061955328D0035D7BE /* TraditionalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 690F92051955328D0035D7BE /* TraditionalViewController.m */; };
+		690F920A195532CC0035D7BE /* CardDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 690F9209195532CC0035D7BE /* CardDisplay.m */; };
 		69783EDB1926D1AD0022DD4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EDA1926D1AD0022DD4A /* Foundation.framework */; };
 		69783EDD1926D1AD0022DD4A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EDC1926D1AD0022DD4A /* CoreGraphics.framework */; };
 		69783EDF1926D1AD0022DD4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69783EDE1926D1AD0022DD4A /* UIKit.framework */; };
@@ -28,6 +30,7 @@
 		697E9A0C1926EABE00D6BB07 /* ModeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697E9A0B1926EABE00D6BB07 /* ModeSelectionViewController.m */; };
 		69CA26A0192934C300A6754A /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CA269F192934C300A6754A /* Deck.m */; };
 		69CA26A3192934C400A6754A /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CA26A2192934C400A6754A /* Card.m */; };
+		69CA26A61929712A00A6754A /* CardsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CA26A51929712A00A6754A /* CardsTableViewCell.m */; };
 		69DBE4B8192870DA00E5C6EE /* EditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DBE4B7192870DA00E5C6EE /* EditCardViewController.m */; };
 		69DBE4BA1928B04800E5C6EE /* Small_Question_Mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69DBE4B91928B04800E5C6EE /* Small_Question_Mark@2x.png */; };
 /* End PBXBuildFile section */
@@ -43,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		690F92041955328D0035D7BE /* TraditionalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraditionalViewController.h; sourceTree = "<group>"; };
+		690F92051955328D0035D7BE /* TraditionalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraditionalViewController.m; sourceTree = "<group>"; };
+		690F9208195532CC0035D7BE /* CardDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDisplay.h; sourceTree = "<group>"; };
+		690F9209195532CC0035D7BE /* CardDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDisplay.m; sourceTree = "<group>"; };
 		69783ED71926D1AD0022DD4A /* Flashcard Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flashcard Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69783EDA1926D1AD0022DD4A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69783EDC1926D1AD0022DD4A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +79,8 @@
 		69CA269F192934C300A6754A /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		69CA26A1192934C400A6754A /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		69CA26A2192934C400A6754A /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		69CA26A41929712A00A6754A /* CardsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsTableViewCell.h; sourceTree = "<group>"; };
+		69CA26A51929712A00A6754A /* CardsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsTableViewCell.m; sourceTree = "<group>"; };
 		69DBE4B6192870DA00E5C6EE /* EditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCardViewController.h; sourceTree = "<group>"; };
 		69DBE4B7192870DA00E5C6EE /* EditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCardViewController.m; sourceTree = "<group>"; };
 		69DBE4B91928B04800E5C6EE /* Small_Question_Mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Small_Question_Mark@2x.png"; path = "../../../Downloads/Small_Question_Mark@2x.png"; sourceTree = "<group>"; };
@@ -103,6 +112,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		690F9207195532A30035D7BE /* Traditional Mode */ = {
+			isa = PBXGroup;
+			children = (
+				690F92041955328D0035D7BE /* TraditionalViewController.h */,
+				690F92051955328D0035D7BE /* TraditionalViewController.m */,
+				690F9208195532CC0035D7BE /* CardDisplay.h */,
+				690F9209195532CC0035D7BE /* CardDisplay.m */,
+			);
+			name = "Traditional Mode";
+			sourceTree = "<group>";
+		};
 		69783ECE1926D1AD0022DD4A = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +161,8 @@
 				697E9A0D1926F1F300D6BB07 /* View Controllers */,
 				69783EEB1926D1AD0022DD4A /* AppDelegate.h */,
 				69783EEC1926D1AD0022DD4A /* AppDelegate.m */,
+				69CA26A41929712A00A6754A /* CardsTableViewCell.h */,
+				69CA26A51929712A00A6754A /* CardsTableViewCell.m */,
 				69783EF11926D1AD0022DD4A /* Images.xcassets */,
 				697E99711926DF3A00D6BB07 /* Storyboard.storyboard */,
 				69DBE4B91928B04800E5C6EE /* Small_Question_Mark@2x.png */,
@@ -201,6 +223,7 @@
 				69783F1B1926DA710022DD4A /* CardsViewController.m */,
 				69DBE4B6192870DA00E5C6EE /* EditCardViewController.h */,
 				69DBE4B7192870DA00E5C6EE /* EditCardViewController.m */,
+				690F9207195532A30035D7BE /* Traditional Mode */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -305,9 +328,12 @@
 				69783EF01926D1AD0022DD4A /* Flashcard_Challenge.xcdatamodeld in Sources */,
 				697E9A0C1926EABE00D6BB07 /* ModeSelectionViewController.m in Sources */,
 				69783F111926D4300022DD4A /* DeckViewController.m in Sources */,
+				69CA26A61929712A00A6754A /* CardsTableViewCell.m in Sources */,
+				690F92061955328D0035D7BE /* TraditionalViewController.m in Sources */,
 				69783EED1926D1AD0022DD4A /* AppDelegate.m in Sources */,
 				69DBE4B8192870DA00E5C6EE /* EditCardViewController.m in Sources */,
 				69CA26A3192934C400A6754A /* Card.m in Sources */,
+				690F920A195532CC0035D7BE /* CardDisplay.m in Sources */,
 				69783EE91926D1AD0022DD4A /* main.m in Sources */,
 				69783F1C1926DA710022DD4A /* CardsViewController.m in Sources */,
 				69CA26A0192934C300A6754A /* Deck.m in Sources */,

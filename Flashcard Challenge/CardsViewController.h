@@ -16,8 +16,11 @@
 @property (strong, nonatomic)NSFetchedResultsController *fetchedResultsController;
 
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *cardSortControl;
 
 - (id)initWithDeck:(Deck *) deck;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addCard;
+@property (strong, nonatomic) IBOutlet UIView *tableHeader;
+- (IBAction)cardSortChanged:(id)sender;
 
 @end

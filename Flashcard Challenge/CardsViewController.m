@@ -8,10 +8,21 @@
 
 #import "CardsViewController.h"
 #import "EditCardViewController.h"
+#import "CardsTableViewCell.h"
 
-@interface CardsViewController ()
+
+#define kCardsTableSortQuestion 0
+#define kCardsTableSortNickname 1
+#define kCardsTableSortDifficulty 2
+#define kCardsTableSortSolution 3
+
+@interface CardsViewController (){
+    NSString * sortKey;
+    NSString * keyPath;
+}
 
 @end
+
 
 @implementation CardsViewController
 
@@ -30,10 +41,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.title = self.deck.name;
+    sortKey = @"question";
+    keyPath = sortKey;
+    
     [self fetchCards];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,14 +60,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    //return 1;
+    return self.fetchedResultsController.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     //return self.deck.cards.count;
-    return self.fetchedResultsController.fetchedObjects.count;
+    //return self.fetchedResultsController.fetchedObjects.count;
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo;
+    sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo numberOfObjects];
 }
 
 
@@ -61,34 +80,68 @@
 {
     static NSString *CellIdentifier = @"CardCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CardsTableViewCell *cell = (CardsTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[CardsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     Card *card = (Card *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-
+    
     //Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
     /*
-    if ([card.nickname isEqualToString:@""]) {
-        cell.textLabel.text = card.question;
-    }
-    else
-    {
-        cell.textLabel.text = card.nickname;
+     if ([card.nickname isEqualToString:@""]) {
+     cell.textLabel.text = card.question;
+     }
+     else
+     {
+     cell.textLabel.text = card.nickname;
+     
+     }*/
+    cell.cardName.text = card.nickname;
+    cell.questionDetails.text = card.question;
+    switch ([card.rating integerValue]) {
+        case 1:
+            cell.difficultyName.text = @"Easy";
+            cell.difficultColor.backgroundColor = [UIColor greenColor];
+            break;
+        case 2:
+            cell.difficultyName.text = @"Medium";
+            cell.difficultColor.backgroundColor = [UIColor yellowColor];
+            cell.difficultyName.textColor = [UIColor purpleColor];
 
-    }*/
-    cell.textLabel.text = card.question;
+            break;
+        case 3:
+            cell.difficultyName.text = @"Hard";
+            cell.difficultColor.backgroundColor = [UIColor redColor];
+
+            break;
+    }
+    if (card.qImage != nil) {
+        cell.cardImage.image = [UIImage imageWithData:card.qImage];
+    }
     
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo;
+    sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo name];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return [self.fetchedResultsController sectionIndexTitles];
+}
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
+}
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-    forRowAtIndexPath:(NSIndexPath *)indexPath
+forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
@@ -129,7 +182,7 @@
 {
     
     EditCardViewController *vc = segue.destinationViewController;
-
+    
     if ([segue.identifier isEqualToString:@"newCardSegue"]) {
         NSEntityDescription *cardEntityDescription = [NSEntityDescription entityForName:@"Card" inManagedObjectContext:self.deck.managedObjectContext];
         Card *newCard = (Card *)[[NSManagedObject alloc] initWithEntity:cardEntityDescription
@@ -141,7 +194,7 @@
         {
             NSLog(@"Error in saved pressed with saving context: %@, %@", error, [error userInfo]);
         }
-
+        
         vc.card = newCard;
         vc.deck = self.deck;
     }
@@ -150,7 +203,7 @@
         Card *card = [self.deck.cards.allObjects objectAtIndex:indexPath.row];
         vc.card = card;
         vc.deck = self.deck;
-
+        
     }
     
 }
@@ -160,6 +213,7 @@
     //[self.deck.managedObjectContext refreshObject:self.deck mergeChanges:YES];
     [self fetchCards];
     [self.tableView reloadData];
+    
 }
 
 #pragma mark - Core Data Helper
@@ -170,18 +224,47 @@
     NSString *cacheName = [@"Card" stringByAppendingString:@"Cache"];
     
     fetchRequest.sortDescriptors = [NSArray arrayWithObjects:
-                               [NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES],
-                                    [NSSortDescriptor sortDescriptorWithKey:@"nickname" ascending:YES], nil];
+                                    [NSSortDescriptor sortDescriptorWithKey:sortKey ascending:YES], nil];
+    
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                      initWithFetchRequest:fetchRequest managedObjectContext:self.deck.managedObjectContext
-                                     sectionNameKeyPath:nil cacheName:cacheName];
+                                     sectionNameKeyPath:keyPath cacheName:cacheName];
     NSError *error;
     if (![self.fetchedResultsController performFetch:&error])
     {
         NSLog(@"Fetch failed: %@", error);
     }
+    [self.tableView reloadData];
 }
 
 
+- (IBAction)cardSortChanged:(id)sender {
+    
+    switch (self.cardSortControl.selectedSegmentIndex)
+    {
+        case kCardsTableSortQuestion:
+            sortKey = @"question";
+            keyPath = sortKey;
+            break;
+        case kCardsTableSortNickname:
+            sortKey = @"nickname";
+            keyPath = sortKey;
+            break;
+        case kCardsTableSortDifficulty:
+            sortKey = @"rating";
+            keyPath = sortKey;
+            break;
+        case kCardsTableSortSolution:
+            sortKey = @"answer";
+            keyPath = sortKey;
+            break;
+        default:
+            sortKey = @"question";
+            keyPath = sortKey;
+            break;
+    }
+    [self fetchCards];
+    
+}
 @end

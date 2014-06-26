@@ -36,23 +36,82 @@
             </objects>
             <point key="canvasLocation" x="649" y="-8"/>
         </scene>
-        <!--Cards View Controller-->
+        <!--Cards View Controller - Deck-->
         <scene sceneID="64g-0z-UmQ">
             <objects>
                 <tableViewController id="EH8-WW-XwF" customClass="CardsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lW4-Sx-XLH">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="lW4-Sx-XLH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="U1e-qb-P7J">
+                            <rect key="frame" x="0.0" y="64" width="320" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kET-QH-SwZ">
+                                    <rect key="frame" x="20" y="0.0" width="280" height="29"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <segments>
+                                        <segment title="Question"/>
+                                        <segment title="Nickname"/>
+                                        <segment title="Difficulty"/>
+                                        <segment title="Solution"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="cardSortChanged:" destination="EH8-WW-XwF" eventType="valueChanged" id="RfL-EP-FoJ"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CardCell" id="jX8-1q-uHr">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CardCell" rowHeight="85" id="jX8-1q-uHr" customClass="CardsTableViewCell">
+                                <rect key="frame" x="0.0" y="116" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jX8-1q-uHr" id="7hU-0M-ZJL">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Stg-bw-lWr">
+                                            <rect key="frame" x="212" y="10" width="55" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="KGa-LX-zT6">
+                                            <rect key="frame" x="20" y="10" width="60" height="65"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asn-Mc-aQM">
+                                            <rect key="frame" x="88" y="10" width="125" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Difficulty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIA-1b-jlH">
+                                            <rect key="frame" x="212" y="10" width="55" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39e-9J-f3Z">
+                                            <rect key="frame" x="88" y="34" width="179" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="cardImage" destination="KGa-LX-zT6" id="qKy-Rc-Q7p"/>
+                                    <outlet property="cardName" destination="asn-Mc-aQM" id="QaB-MO-U6n"/>
+                                    <outlet property="difficultColor" destination="Stg-bw-lWr" id="bUM-ry-XcJ"/>
+                                    <outlet property="difficultyName" destination="UIA-1b-jlH" id="aTq-0G-XwW"/>
+                                    <outlet property="questionDetails" destination="39e-9J-f3Z" id="D9c-BJ-Qh7"/>
                                     <segue destination="7xL-pe-Dhf" kind="push" identifier="cardEditSegue" id="0Ow-S2-g0o"/>
                                 </connections>
                             </tableViewCell>
@@ -63,7 +122,7 @@
                             <outlet property="delegate" destination="EH8-WW-XwF" id="3Fg-g2-bGL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ffm-3a-uxk">
+                    <navigationItem key="navigationItem" title="Deck" id="Ffm-3a-uxk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vt0-fy-gxs">
                             <connections>
                                 <action selector="add" destination="EH8-WW-XwF" id="sDk-dZ-vGU"/>
@@ -74,11 +133,41 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="addCard" destination="vt0-fy-gxs" id="cFv-ph-tS5"/>
+                        <outlet property="cardSortControl" destination="kET-QH-SwZ" id="Shj-ZG-7MA"/>
+                        <outlet property="tableHeader" destination="U1e-qb-P7J" id="nyH-ET-znp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukc-GN-Aph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1462" y="-8"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cOw-Vz-uIq">
+            <objects>
+                <viewController id="jD0-Sg-etN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EKl-Nz-C5v"/>
+                        <viewControllerLayoutGuide type="bottom" id="etN-mF-854"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XrW-ad-xUH">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vhl-Bx-xc7" customClass="CardDisplay">
+                                <rect key="frame" x="20" y="24" width="529" height="276"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t4p-UZ-6RX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462" y="697"/>
         </scene>
         <!--Edit Card View Controller - Edit Card-->
         <scene sceneID="f6e-VC-Mrw">
@@ -213,6 +302,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
+                                <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="XUw-Gz-q77" firstAttribute="top" secondItem="wwK-rY-jeK" secondAttribute="top" constant="54" id="0FX-n3-TJD"/>
                                     <constraint firstItem="BKo-sp-Eg7" firstAttribute="trailing" secondItem="Lge-9M-LrD" secondAttribute="trailing" id="2Hq-lD-ngP"/>
